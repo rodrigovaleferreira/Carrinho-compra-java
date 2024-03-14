@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Cliente cliente = new Cliente("Rodrigo", "Rua Braga, 468", "rodrigodovale2002@gmail.com", "(32)984877723");
+
+        
+        List<Produto> produtosDisponiveis = new ArrayList<>();
+        produtosDisponiveis.add(new Produto("Camiseta", 29.99, "Camiseta de algodão"));
+        produtosDisponiveis.add(new Produto("Calça jeans", 59.99, "Calça jeans slim"));
+        produtosDisponiveis.add(new Produto("Tênis", 99.99, "Tênis esportivo"));
+
+        
+        System.out.println("Produtos Disponíveis:");
+        for (Produto produto : produtosDisponiveis) {
+            produto.exibirInformacoes();
+            System.out.println();
+        }
+
+        
+        Compra compra = new Compra(cliente);
+        compra.adicionarProduto(produtosDisponiveis.get(0));
+        compra.adicionarProduto(produtosDisponiveis.get(1));
+        compra.adicionarProduto(produtosDisponiveis.get(1));
+        compra.adicionarProduto(produtosDisponiveis.get(2));
+        compra.adicionarProduto(produtosDisponiveis.get(0));
+      
+        System.out.println("Detalhes da Compra:");
+        compra.exibirDetalhes();
+    }
+}
