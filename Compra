@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Compra {
+    
+    private Cliente cliente;
+    private List<Produto> produtos;
+    private double total;
+
+    
+    public Compra(Cliente cliente) {
+        this.cliente = cliente;
+        this.produtos = new ArrayList<>();
+        this.total = 0.0;
+    }
+
+    
+    public void adicionarProduto(Produto produto) {
+        produtos.add(produto);
+        total += produto.getPreco();
+    }
+
+    
+    public void exibirDetalhes() {
+        cliente.exibirInformacoes();
+        System.out.println("Produtos na compra:");
+        for (Produto produto : produtos) {
+            produto.exibirInformacoes();
+            System.out.println();
+        }
+        System.out.println("Total da compra: R$" + total);
+    }
+}
